@@ -61,7 +61,3 @@ There is also a `production` task you can run with `gulp production`, which will
 
 ### Configuration
 All paths and plugin settings have been abstracted into a centralized config object in `gulp/config.js`. Adapt the paths and settings to the structure and needs of your project.
-=======
-# gulp-starter
-gulp starter stack with browserify, uglify, react, bootstrap, sass
->>>>>>> 11d35ae7041ce2f163fb7e686b6e8b31d217feff
