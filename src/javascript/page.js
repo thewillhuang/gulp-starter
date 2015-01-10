@@ -8,8 +8,5 @@ var _ = require('underscore');
 // Also in config.js, jquery is listed in `external` array for this bundle.
 // This combination lets this file use the jquery module bundled with
 // global.js, instead including it twice!
-var jQuery = $;
-require('../../bower_components/bootstrap/dist/js/bootstrap.js');
-require('../../bower_components/bootstrap/dist/js/npm.js');
-
+require('bootstrap');
 console.log('page.js loaded!');

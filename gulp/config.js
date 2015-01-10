@@ -1,11 +1,16 @@
 var dest = "./build";
 var src = './src';
+var compression = require('compression');
 
 module.exports = {
   browserSync: {
     server: {
       // Serve up our build folder
-      baseDir: dest
+      baseDir: dest,
+      middleware: [compression(), function(req, res, next) {
+          console.log(req.method, req.url);
+        next();
+      }]
     }
   },
   sass: {
@@ -56,6 +61,11 @@ module.exports = {
   production: {
     cssSrc: dest + '/*.css',
     jsSrc: dest + '/*.js',
+    dest: dest
+  },
+  minifyHtml: {
+    opts: {spare:true},
+    src: src + "/htdocs/**",
     dest: dest
   }
 };
