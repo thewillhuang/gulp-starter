@@ -10,9 +10,9 @@ module.exports = {
       // Serve up our build folder
       baseDir: dest,
       middleware: [compression()],
-      proxy: 'localhost:3000',  // local node app address
-      port: 5000,  // use *different* port than above
-      notify: true
+      https: false
+      // proxy: 'localhost:3000',  // local node app address
+      // port: 4004  // use *different* port than above
     }
   },
   sass: {
@@ -30,7 +30,7 @@ module.exports = {
     dest: dest + '/fonts'
   },
   gulp: {
-    src: gulp
+    src: gulp + '/**/*'
   },
   images: {
     src: src + '/images/**',

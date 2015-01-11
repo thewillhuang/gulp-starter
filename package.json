@@ -2,6 +2,14 @@
   "name": "",
   "version": "0.0.1",
   "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "node_modules/grunt-cli/bin/grunt",
+    "postinstall": "npm run bower && npm run build",
+    "bower": "bower install",
+    "build": "gulp",
+    "start": "node server.js"
+    },
   "repository": {
     "type": "git",
     "url": ""
