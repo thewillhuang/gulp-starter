@@ -8,7 +8,7 @@ module.exports = {
       // Serve up our build folder
       baseDir: dest,
       middleware: [compression(), function(req, res, next) {
-          console.log(req.method, req.url);
+        console.log(req.method, req.url);
         next();
       }]
     }
@@ -61,7 +61,10 @@ module.exports = {
   production: {
     cssSrc: dest + '/*.css',
     jsSrc: dest + '/*.js',
-    dest: dest
+    dest: dest,
+    cssOpt: {
+      keepSpecialComments: 0,
+    }
   },
   minifyHtml: {
     opts: {spare:true},
