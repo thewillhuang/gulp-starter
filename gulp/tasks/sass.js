@@ -1,3 +1,4 @@
+'use strict';
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync');
 var sass         = require('gulp-sass');
@@ -6,7 +7,7 @@ var handleErrors = require('../util/handleErrors');
 var config       = require('../config').sass;
 var autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('sass', function () {
+gulp.task('sass', function() {
   return gulp.src(config.src)
     .pipe(sourcemaps.init())
     .pipe(sass(config.settings))

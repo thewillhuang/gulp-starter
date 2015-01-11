@@ -1,3 +1,4 @@
+'use strict';
 var minifyHTML = require('gulp-minify-html');
 var gulp = require('gulp');
 var config = require('../config').minifyHtml;

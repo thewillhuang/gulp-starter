@@ -1,3 +1,4 @@
+'use strict';
 /* browserify task
    ---------------
    Bundle javascripty things with browserify!
@@ -24,7 +25,7 @@ var browserifyTask = function(callback, devMode) {
 
   var browserifyThis = function(bundleConfig) {
 
-    if(devMode) {
+    if (devMode) {
       // Add watchify args and debug (sourcemaps) option
       _.extend(bundleConfig, watchify.args, { debug: true });
       // A watchify require/external bug that prevents proper recompiling,
@@ -52,7 +53,7 @@ var browserifyTask = function(callback, devMode) {
         .pipe(browserSync.reload({stream:true}));
     };
 
-    if(devMode) {
+    if (devMode) {
       // Wrap with watchify and rebundle on changes
       b = watchify(b);
       // Rebundle on update
@@ -61,19 +62,19 @@ var browserifyTask = function(callback, devMode) {
     } else {
       // Sort out shared dependencies.
       // b.require exposes modules externally
-      if(bundleConfig.require) b.require(bundleConfig.require);
+      if (bundleConfig.require) b.require(bundleConfig.require);
       // b.external excludes modules from the bundle, and expects
       // they'll be available externally
-      if(bundleConfig.external) b.external(bundleConfig.external);
+      if (bundleConfig.external) b.external(bundleConfig.external);
     }
 
     var reportFinished = function() {
       // Log when bundling completes
       bundleLogger.end(bundleConfig.outputName);
 
-      if(bundleQueue) {
+      if (bundleQueue) {
         bundleQueue--;
-        if(bundleQueue === 0) {
+        if (bundleQueue === 0) {
           // If queue is empty, tell gulp the task is complete.
           // https://github.com/gulpjs/gulp/blob/master/docs/API.md#accept-a-callback
           callback();

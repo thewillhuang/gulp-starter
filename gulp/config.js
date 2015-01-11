@@ -1,4 +1,5 @@
-var dest = "./build";
+'use strict';
+var dest = './build';
 var src = './src';
 var compression = require('compression');
 
@@ -7,14 +8,11 @@ module.exports = {
     server: {
       // Serve up our build folder
       baseDir: dest,
-      middleware: [compression(), function(req, res, next) {
-        console.log(req.method, req.url);
-        next();
-      }]
+      middleware: [compression()]
     }
   },
   sass: {
-    src: src + "/sass/*.{sass,scss}",
+    src: src + '/sass/*.{sass,scss}',
     dest: dest,
     settings: {
       // Required if you want to use SASS syntax
@@ -24,18 +22,18 @@ module.exports = {
     }
   },
   copy: {
-    src: src + "/fonts/**",
-    dest: dest + "/fonts"
+    src: src + '/fonts/**',
+    dest: dest + '/fonts'
   },
   clean: {
     src: dest
   },
   images: {
-    src: src + "/images/**",
-    dest: dest + "/images"
+    src: src + '/images/**',
+    dest: dest + '/images'
   },
   markup: {
-    src: src + "/htdocs/**",
+    src: src + '/htdocs/**',
     dest: dest
   },
   browserify: {
@@ -53,7 +51,7 @@ module.exports = {
     {
       entries: src + '/javascript/page.js',
       dest: dest,
-      outputName: 'page.js',
+      outputName: 'page.js'
       // list of externally available modules to exclude from the bundle
       // external: ['jquery', 'underscore']
     }]
@@ -63,12 +61,12 @@ module.exports = {
     jsSrc: dest + '/*.js',
     dest: dest,
     cssOpt: {
-      keepSpecialComments: 0,
+      keepSpecialComments: 0
     }
   },
   minifyHtml: {
     opts: {spare:true},
-    src: src + "/htdocs/**",
+    src: src + '/htdocs/**',
     dest: dest
   }
 };
