@@ -1,6 +1,7 @@
 'use strict';
 var dest = './build';
-var src = './src';
+var src = './app';
+var gulp = './gulp';
 var compression = require('compression');
 
 module.exports = {
@@ -8,7 +9,10 @@ module.exports = {
     server: {
       // Serve up our build folder
       baseDir: dest,
-      middleware: [compression()]
+      middleware: [compression()],
+      proxy: 'localhost:3000',  // local node app address
+      port: 5000,  // use *different* port than above
+      notify: true
     }
   },
   sass: {
@@ -25,8 +29,8 @@ module.exports = {
     src: src + '/fonts/**',
     dest: dest + '/fonts'
   },
-  clean: {
-    src: dest
+  gulp: {
+    src: gulp
   },
   images: {
     src: src + '/images/**',
